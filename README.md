@@ -1,5 +1,6 @@
 # Asylum
-My Interactive Fiction (IF) attempt during [Ludum Dare 49](https://ldjam.com/events/ludum-dare/49/) - themed "Unstable"
+
+My Interactive Fiction (IF) attempt during [Ludum Dare 49](https://ldjam.com/events/ludum-dare/49/) - themed "Unstable".
 
 ## Scenario
 
