@@ -167,7 +167,7 @@ You wake up again feeling dizzy, like from a dream. A //very// bad dream.
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;set $times += 1&gt;&gt;
 [[You want to wake up.|wake up]]
-[[Nah, keep sleeping.|keep sleeping]]</tw-passagedata><tw-passagedata pid="2" name="wake up" tags="" position="613,511" size="100,100">You look around. Well, a little. You&#39;re moving but you notice you&#39;re not walking -- you&#39;re laying in some sort of stretcher, tied up. 
+[[Nah, keep sleeping.|keep sleeping][$medicine_level to ($medicine_level -1)]]</tw-passagedata><tw-passagedata pid="2" name="wake up" tags="" position="613,511" size="100,100">You look around. Well, a little. You&#39;re moving but you notice you&#39;re not walking -- you&#39;re laying in some sort of stretcher, tied up. 
 
 &quot;//What?!//&quot; -- you think.
 
@@ -179,7 +179,7 @@ You seem to be firmly tied, but you can still [[move your wrists|try to break fr
 [[You keep quiet, trying to understand what is happening.|keep quiet]]</tw-passagedata><tw-passagedata pid="3" name="keep sleeping" tags="ending reduce-drug-level" position="1330,380" size="100,100">&lt;&lt;set $ending to true&gt;&gt;
 You keep sleeping&lt;&lt;if $times gt 1&gt;&gt; this time&lt;&lt;/if&gt;&gt;. You see nothing. You hear nothing. Sometimes you feel something, but you&#39;d rather you didn&#39;t.
 
-You can still [[wake up]], if you want.</tw-passagedata><tw-passagedata pid="4" name="try to break free" tags="reduce-drug-level" position="857,601" size="100,100">You cannot break free, you&#39;re really tied up.
+You can still [[wake up]], if you want.</tw-passagedata><tw-passagedata pid="4" name="try to break free" tags="reduce-drug-level" position="856,601" size="100,100">You cannot break free, you&#39;re really tied up.
 
 [[Look at the people carrying your stretcher.|look nurses]]
 [[Go back to sleep, this must be a nightmare.|keep sleeping][$medicine_level to ($medicine_level - 1)]]</tw-passagedata><tw-passagedata pid="5" name="look nurses" tags="" position="612,675" size="100,100">They don&#39;t seem pleased to see you&#39;re awaken.
@@ -204,7 +204,7 @@ You look across the very large room, hardly a typical doctor&#39;s office, and y
 
 It feels good to have your hands free.
 
-&quot;[[Where is here exactly?|ask doctor where]]&quot;, you ask.</tw-passagedata><tw-passagedata pid="8" name="run from doctor" tags="" position="489,1071" size="100,100">//&quot;This conversation did not make sense. I&#39;m out of here&quot;//, you still manage to think, in the run.
+&quot;[[Where is here exactly?|ask doctor where]]&quot;, you ask.</tw-passagedata><tw-passagedata pid="8" name="run from doctor" tags="" position="533,1028" size="100,100">//&quot;This conversation did not make sense. I&#39;m out of here&quot;//, you still manage to think, in the run.
 
 You go to nearest bright green exit sign. No one pays attention to you at this point.
 
@@ -223,7 +223,8 @@ You think. And realize not much.
 
 [[You tell the doctor your name.|tell name][$medicine_level to ($medicine_level - 1)]]
 [[You ignore the question and ask why you&#39;re being kept in the hospital.|talk to doctor]]
-[[You get up fast, don&#39;t give the doctor time for anything else, and escape from the room.|run from doctor]]</tw-passagedata><tw-passagedata pid="10" name="tell name" tags="reduce-drug-level" position="89,1078" size="100,100">You can say your name:
+&lt;&lt;if $medicine_level lt 3&gt;&gt;[[You get up fast, don&#39;t give the doctor time for anything else, and escape from the room.|run from doctor]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="tell name" tags="reduce-drug-level" position="89,1078" size="100,100">You can say your name:
 &lt;&lt;textbox &quot;$name&quot; &quot;&quot;&gt;&gt;
 
 Or not. Up to you.
@@ -252,7 +253,7 @@ You fight, but they overcome you. The nurse give you a shot, and you feel dizzy 
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="downstairs" tags="" position="924,957" size="100,100">Downstairs, there&#39;s more people. 
 
-You don&#39;t have many options, though. [[You walk away by the front door, hoping no one will notice|guards]].</tw-passagedata><tw-passagedata pid="15" name="talk to doctor" tags="" position="407,1293" size="100,100">&lt;&lt;if $name is &quot;&quot;&gt;&gt;&lt;&lt;set $name to &quot;my friend&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&quot;Well, $name...&quot;, the doctor says. &quot;There has been an incident. You were feeling sick, then we had to prescribe you a medicine. To make you feel better, you know.&quot;
+You don&#39;t have many options, though. [[You walk away by the front door, hoping no one will notice|guards]].</tw-passagedata><tw-passagedata pid="15" name="talk to doctor" tags="" position="407,1294" size="100,100">&lt;&lt;if $name is &quot;&quot;&gt;&gt;&lt;&lt;set $name to &quot;my friend&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&quot;Well, $name...&quot;, the doctor says. &quot;There has been an incident. You were feeling sick, then we had to prescribe you a medicine. To make you feel better, you know.&quot;
 
 &quot;And why was I tied? Did I do anything bad?&quot;, you ask.
 
@@ -261,7 +262,7 @@ You don&#39;t have many options, though. [[You walk away by the front door, hopi
 //&quot;This doctor seem to be hiding something. Why the evasive responses?&quot;//, you think to yourself.
 
 [[You engage in a conversation with the doctor, trying to learn more.|engage in conversation][$medicine_level to ($medicine_level - 1)]]
-[[You run for the door in an attempt to escape.|run from doctor]]</tw-passagedata><tw-passagedata pid="16" name="StoryInit" tags="" position="466,263" size="100,100">&lt;&lt;set $times to 0&gt;&gt;
+&lt;&lt;if $medicine_level lt 3&gt;&gt;[[You run for the door in an attempt to escape.|run from doctor]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="StoryInit" tags="" position="466,263" size="100,100">&lt;&lt;set $times to 0&gt;&gt;
 &lt;&lt;set $start_time to Date.now()&gt;&gt;
 &lt;&lt;set $medicine_level to random(3, 5)&gt;&gt;
 &lt;&lt;set $mult_factor to random(37, 69)&gt;&gt;
@@ -288,7 +289,7 @@ Drug blood level: &lt;&lt;print ($medicine_level * $mult_factor) / 100&gt;&gt;.
 The doctor gets the phone extension, to call for someone to help with your medication.
 
 [[You wait while they talk, watching the room around you.|wait][$medicine_level to ($medicine_level + 1)]]
-[[You decide any medication that cause you to forget everything cannot be a good thing. You run for the door, to try to run away.|run from doctor]]</tw-passagedata><tw-passagedata pid="20" name="keep quiet" tags="" position="290,403" size="100,100">The nurses carry your stretch across a long corridor, until its end, watching you closely. They  knock at a door and enter. They push you into the room.
+&lt;&lt;if $medicine_level lt 3&gt;&gt;[[You decide any medication that cause you to forget everything cannot be a good thing. You run for the door, to try to run away.|run from doctor]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="keep quiet" tags="" position="290,403" size="100,100">The nurses carry your stretch across a long corridor, until its end, watching you closely. They  knock at a door and enter. They push you into the room.
 
 [[You enter the doctor&#39;s office.|doctors office]]</tw-passagedata><tw-passagedata pid="21" name="wait" tags="increase-drug-level" position="1634,856" size="100,100">A nurse arrives with a guard. 
 
@@ -298,7 +299,7 @@ You don&#39;t fight, but they hold you firmly anyway. The nurse give you the sho
 
 &lt;&lt;if $medicine_level gte 6&gt;&gt;[[Everything goes black.|overdose]]
 &lt;&lt;else&gt;&gt;[[Everything goes black.|Start]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="overdose" tags="ending" position="1560,508" size="100,100">&lt;&lt;set $final_ending to true&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="overdose" tags="ending" position="1560,509" size="100,100">&lt;&lt;set $final_ending to true&gt;&gt;
 The drug levels in your blood were just too high.
 
 You never got the chance to recover your memory, and you feel sorry for that. For less than a second, though. You won&#39;t wake up again.</tw-passagedata></tw-storydata>
