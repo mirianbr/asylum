@@ -238,19 +238,23 @@ You keep walking, very aware of your unusual outfit, while you try to remember h
 
 You&#39;ll get there. You will be okay.
 &lt;&lt;timed 2000ms t8n&gt;&gt;You think.
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="guards" tags="ending increase-drug-level" position="1361,762" size="100,100">&lt;&lt;set $ending to true&gt;&gt;
-&lt;&lt;set $guards to random(1,3)&gt;&gt;
-&lt;&lt;if $guards is 1&gt;&gt;A guard comes running in your direction, followed by a nurse. 
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="guards" tags="ending increase-drug-level" position="1363,762" size="100,100">&lt;&lt;set $ending to true&gt;&gt;
+&lt;&lt;set $lost to false&gt;&gt;
+&lt;&lt;set $guards to random(1, 3)&gt;&gt;
+&lt;&lt;if $guards is 1&gt;&gt;A guard comes running in your direction, followed by a nurse.
 
 The guard is stronger than you, but you&#39;re faster. [[You manage to escape.|walk with caution]]
 &lt;&lt;else&gt;&gt;$guards guards come running in your direction, followed by a nurse.
 
-You fight, but they overcome you. The nurse give you a shot, and you feel dizzy again, worse than before.
-&lt;&lt;set $medicine_level to ($medicine_level + 1)&gt;&gt;
-
-&lt;&lt;if $medicine_level gte 6&gt;&gt;[[You pass out.|overdose]]
-&lt;&lt;else&gt;&gt;[[You pass out.|Start]]
+&lt;&lt;if $medicine_level lte 0&gt;&gt;You fight back, and somehow [[manage to escape.|walk with caution]]
+&lt;&lt;else&gt;&gt;You fight back, but they overcome you. The nurse give you a shot, and you feel dizzy again, worse than before.&lt;&lt;set $lost to true&gt;&gt;
 &lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if $lost&gt;&gt;
+  &lt;&lt;set $medicine_level to ($medicine_level + 1)&gt;&gt;
+  &lt;&lt;if $medicine_level gte 6&gt;&gt;[[You pass out.|overdose]]
+    &lt;&lt;else&gt;&gt;[[You pass out.|Start]]
+  &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="downstairs" tags="" position="924,957" size="100,100">Downstairs, there&#39;s more people. 
 
 You don&#39;t have many options, though. [[You walk away by the front door, hoping no one will notice|guards]].</tw-passagedata><tw-passagedata pid="15" name="talk to doctor" tags="" position="407,1294" size="100,100">&lt;&lt;if $name is &quot;&quot;&gt;&gt;&lt;&lt;set $name to &quot;my friend&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&quot;Well, $name...&quot;, the doctor says. &quot;There has been an incident. You were feeling sick, then we had to prescribe you a medicine. To make you feel better, you know.&quot;
@@ -262,7 +266,7 @@ You don&#39;t have many options, though. [[You walk away by the front door, hopi
 //&quot;This doctor seem to be hiding something. Why the evasive responses?&quot;//, you think to yourself.
 
 [[You engage in a conversation with the doctor, trying to learn more.|engage in conversation][$medicine_level to ($medicine_level - 1)]]
-&lt;&lt;if $medicine_level lt 3&gt;&gt;[[You run for the door in an attempt to escape.|run from doctor]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="StoryInit" tags="" position="466,263" size="100,100">&lt;&lt;set $times to 0&gt;&gt;
+&lt;&lt;if $medicine_level lt 3&gt;&gt;[[You run for the door in an attempt to escape.|run from doctor]]&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="StoryInit" tags="" position="467,263" size="100,100">&lt;&lt;set $times to 0&gt;&gt;
 &lt;&lt;set $start_time to Date.now()&gt;&gt;
 &lt;&lt;set $medicine_level to random(3, 5)&gt;&gt;
 &lt;&lt;set $mult_factor to random(37, 69)&gt;&gt;
