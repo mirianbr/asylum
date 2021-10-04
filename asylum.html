@@ -182,7 +182,7 @@ You are in a hospital-like building. There are a number of people walking by, bu
 You seem to be firmly tied, but you can still [[move your wrists|try to break free][$medicine_level to ($medicine_level - 1)]].
 
 [[Try to talk to the nurses close to you.|talk to nurses][$medicine_level to ($medicine_level - 1)]]
-[[You keep quiet, trying to understand what is happening.|keep quiet]]</tw-passagedata><tw-passagedata pid="3" name="keep sleeping" tags="ending reduce-drug-level" position="1330,380" size="100,100">&lt;&lt;audio yawn play&gt;&gt;&lt;&lt;audio mainsong volume 0.2&gt;&gt;&lt;&lt;set $ending to true&gt;&gt;
+[[You keep quiet, trying to understand what is happening.|keep quiet]]</tw-passagedata><tw-passagedata pid="3" name="keep sleeping" tags="ending reduce-drug-level" position="1330,379" size="100,100">&lt;&lt;audio yawn play&gt;&gt;&lt;&lt;audio mainsong volume 0.2&gt;&gt;&lt;&lt;set $ending to true&gt;&gt;
 You keep sleeping&lt;&lt;if $times gt 1&gt;&gt; this time&lt;&lt;/if&gt;&gt;. You see nothing. You hear nothing. Sometimes you feel something, but you&#39;d rather you didn&#39;t.
 You can still [[wake up]], if you want.</tw-passagedata><tw-passagedata pid="4" name="try to break free" tags="reduce-drug-level" position="856,601" size="100,100">You cannot break free, you&#39;re really tied up.
 
@@ -275,7 +275,8 @@ You don&#39;t have many options, though. [[You walk away by the front door, hopi
 &lt;&lt;set $name to &quot;&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;mainsong&quot; &quot;audio/hospital.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;door&quot; &quot;audio/door.mp3&quot;&gt;&gt;
-&lt;&lt;cacheaudio &quot;yawn&quot; &quot;audio/yawn.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="PassageFooter" tags="" position="339,268" size="100,100">&lt;&lt;if passage() isnot &quot;credits&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;yawn&quot; &quot;audio/yawn.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;beep&quot; &quot;audio/beep.mp3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="PassageFooter" tags="" position="339,268" size="100,100">&lt;&lt;if passage() isnot &quot;credits&quot;&gt;&gt;
 &lt;&lt;if $medicine_level lt 0&gt;&gt;&lt;&lt;set $medicine_level to 0&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
@@ -312,7 +313,7 @@ You don&#39;t fight, but they hold you firmly anyway. The nurse give you the sho
 
 &lt;&lt;if $medicine_level gte 6&gt;&gt;[[Everything goes black.|overdose]]
 &lt;&lt;else&gt;&gt;[[Everything goes black.|Start]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="overdose" tags="ending has-image" position="1558,509" size="100,100">&lt;&lt;audio &quot;:all&quot; fadeoverto 2 0&gt;&gt;&lt;&lt;set $final_ending to true&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="overdose" tags="ending has-image" position="1558,510" size="100,100">&lt;&lt;audio mainsong fadeoverto 3 0&gt;&gt;&lt;&lt;audio beep fadeout&gt;&gt;&lt;&lt;set $final_ending to true&gt;&gt;
 The drug levels in your blood were just too high.
 &lt;&lt;timed 2000ms t8n&gt;&gt;
 You never got the chance to recover your memory, and you feel sorry for that. For less than a second, though. You won&#39;t wake up again.
