@@ -12,7 +12,7 @@ All sounds are also public domain (CC 0), from https://freesound.org.
 
 ## Links
 
-* Ludum Dare 49 page
+* [Ludum Dare 49 page](https://ldjam.com/events/ludum-dare/49/asylum)
 * [itch.io](https://mirianbr.itch.io/asylum) (you can play it there!)
 
 ## Disclaimer and inspiration sources
